@@ -1,30 +1,13 @@
-<!DOCTYPE html>
+{% extends "hacker_matcher/base.html" %}
 
 {%  load staticfiles %}
 
-<head>
-<meta charset="UTF-8">
-	<title>LUCID | HTML5 Responsive Template</title>
-	<link rel="stylesheet" href="{% static "hacker_matcher/css/font-awesome.min.css" %}">
-	<link rel="stylesheet" href="{% static "hacker_matcher/css/bootstrap.min.css" %}">
-	<link rel="stylesheet" href="{% static "hacker_matcher/css/animate.min.css" %}">
-	<link rel="stylesheet" href="{% static "hacker_matcher/css/style.css" %}">
-	<link rel="stylesheet" href="{% static "hacker_matcher/css/responsive.css" %}">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
-	<script src="{% static "hacker_matcher/js/modernizr.js" %}"></script>
-    
-    <link rel="stylesheet" type="text/css" media="all" href="{% static "hacker_matcher/css/buttonStyle.css" %}" >
-    <script type="text/javascript" src="{% static "hacker_matcher/js/jquery-1.9.1.min.js" %}"></script>
-    <script type="text/javascript" charset="utf-8" src="{% static "hacker_matcher/js/jquery.leanModal.min.js" %}"></script>
-  <!-- jQuery plugin leanModal under MIT License http://leanmodal.finelysliced.com.au/ -->
-	<!--[if lt IE 9]>
-	    <script src="js/html5shiv.js"></script>
-	    <script src="js/respond.min.js"></script>
-	<![endif]-->
-</head>
+{% block title %}Profile Setup{% endblock %}
 
-<body>
-    
+
+{% block body %}
+
+<br><br><br><br>
 <div class="container-fluid">
     <section class="container">
 		<div class="container-page">				
@@ -117,4 +100,4 @@
 	</section>
 </div>
     
-</body>
+{% endblock %}
