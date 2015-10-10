@@ -10,3 +10,6 @@ def profle_setup(request):
 
 def matches(request):
     return render(request, 'hacker_matcher/matches.html')
+
+def signup(request):
+    return render(request, 'hacker_matcher/signup.html')
