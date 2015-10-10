@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+ <form id="category_form" method="post" action="/match/profile_setup/">
+     {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="submit" value="OK" >
+     </form>
+</body>
+</html>
