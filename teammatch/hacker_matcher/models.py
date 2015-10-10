@@ -34,7 +34,7 @@ class Team(models.Model):
 	languages = models.ManyToManyField(Languages)
 	project = models.ForeignKey(Project)
 	team_owner = models.ForeignKey(Hacker)
-	languages_wanted = models.	
+	languages_wanted = models.ManyToManyField(Languages)
 	
 class Project(models.Model):
 	name = models.CharField()
@@ -47,4 +47,3 @@ class Genres(models.Model):
 class Platforms(models.Model):
 	name = models.CharField()
 	platform_type = models.CharField()
-	
