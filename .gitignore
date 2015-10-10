@@ -1,1 +1,2 @@
 *.pyc
+/teammatch/db.sqlite3
