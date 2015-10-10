@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 school_options = (
@@ -15,6 +16,7 @@ year_in_school_options = (
 )
 
 class Hacker(models.Model):
+    user = models.OneToOneField(User, blank=True, null=True)
     name = models.CharField(max_length = 150)
     languages_pro = models.ManyToManyField('Languages', blank = True, null = True, related_name = 'hacker_languages_pro')
     languages_noob = models.ManyToManyField('Languages', blank = True, null = True, related_name = 'hacker_languages_noob')
