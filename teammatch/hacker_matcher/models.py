@@ -25,6 +25,7 @@ class Hacker(models.Model):
     education_year = models.CharField(max_length = 2, choices = year_in_school_options)
     school_name = models.CharField(max_length = 150)
     project_genre_wanted = models.ForeignKey('Genres', blank = True)
+    platforms_wanted = models.ForeignKey('Platforms', related_name = 'hacker_platforms_wanted')
 
 class Languages(models.Model):
     name = models.CharField(max_length = 50)
