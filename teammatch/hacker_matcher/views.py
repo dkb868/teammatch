@@ -7,3 +7,6 @@ def index(request):
 
 def profle_setup(request):
     return render(request, 'hacker_matcher/profile_setup.html')
+
+def matches(request):
+    return render(request, 'hacker_matcher/matches.html')
