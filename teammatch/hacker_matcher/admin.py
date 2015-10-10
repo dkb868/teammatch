@@ -1,3 +1,5 @@
 from django.contrib import admin
+from hacker_matcher.models import Hacker, Languages
 
-# Register your models here.
+admin.site.register(Hacker)
+admin.site.register(Languages)

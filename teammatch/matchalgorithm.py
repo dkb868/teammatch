@@ -31,11 +31,14 @@ def score( hacker, profile ):
 	if htype == ptype:
 		score += 2
 		
+<<<<<<< HEAD
 	hcomp = hacker.iscompetitive
 	pcomp = profile.iscompetitive
 	if hcomp == pcomp:
 		score += 2
 		
+=======
+>>>>>>> origin/master
 	
 	
 	
@@ -55,27 +58,45 @@ def matches( hacker, profiles ):
 	return final
 	
 class hacker:
+<<<<<<< HEAD
 	def __init__(self, lang, yr, genre, type, iscomp):
+=======
+	def __init__(self, lang, yr, genre, type):
+>>>>>>> origin/master
 		self.languages_wanted = lang
 		self.year = yr
 		self.genre = genre
 		self.type = type
+<<<<<<< HEAD
 		self.iscompetitive = iscomp
 		
 class prof:
 	def __init__(self, name, langwell, langbad, yr, genre,type, iscomp):
+=======
+		
+class prof:
+	def __init__(self, name, langwell, langbad, yr, genre,type):
+>>>>>>> origin/master
 		self.name = name
 		self.languages_well = langwell
 		self.languages_bad = langbad
 		self.year = yr
 		self.genre = genre
 		self.type = type
+<<<<<<< HEAD
 		self.iscompetitive = iscomp
 		
 me = hacker(('python', 'ruby', 'c++', 'javascript' ),4, 'education','app', True)
 joe = prof('joe',('python', 'ruby', 'c++' ), ('java','javascript'),3,'education','app', True)
 john = prof('john',('python', 'ruby'),( 'c++' ,'java'),1,'social','app', True)
 josh = prof('josh',('java', 'python', 'ruby'),('c++','javascript'),2,'social','app', False)
+=======
+		
+me = hacker(('python', 'ruby', 'c++', 'javascript' ),4, 'education','app')
+joe = prof('joe',('python', 'ruby', 'c++' ), ('java','javascript'),3,'education','app')
+john = prof('john',('python', 'ruby'),( 'c++' ,'java'),1,'social','app')
+josh = prof('josh',('java', 'python', 'ruby'),('c++','javascript'),2,'social','app')
+>>>>>>> origin/master
 profiles = [joe, john,josh]
 for i in matches(me,profiles):
 	print i.name

@@ -13,9 +13,22 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.conf.urls import include, url, patterns
 from django.contrib import admin
+from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^match/', include('hacker_matcher.urls'), name='match'),
+    url(r'^accounts/', include('registration.backends.simple.urls'))
 ]
+
+
+# Development media server,
+# REMOVE IN PRODUCTION
+if settings.DEBUG:
+    urlpatterns += patterns(
+        'django.views.static',
+        (r'^media/(?P<path>.*)',
+        'serve',
+        {'document_root': settings.MEDIA_ROOT}), )
