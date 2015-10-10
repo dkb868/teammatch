@@ -17,16 +17,16 @@ year_in_school_options = (
 
 class Hacker(models.Model):
     user = models.OneToOneField(User, blank=True, null=True)
-    name = models.CharField(max_length = 150)
+    name = models.CharField(max_length = 150, blank = True, null = True)
     languages_pro = models.ManyToManyField('Languages', blank = True, null = True, related_name = 'hacker_languages_pro')
     languages_noob = models.ManyToManyField('Languages', blank = True, null = True, related_name = 'hacker_languages_noob')
-    slack = models.CharField(max_length = 50)
-    is_competitive = models.BooleanField()
-    education_school = models.CharField(max_length = 2, choices = school_options)
-    education_year = models.CharField(max_length = 2, choices = year_in_school_options)
-    school_name = models.CharField(max_length = 150)
+    slack = models.CharField(max_length = 50, blank = True, null = True)
+    is_competitive = models.BooleanField(blank=True, default=True)
+    education_school = models.CharField(max_length = 2, choices = school_options, blank = True, null = True)
+    education_year = models.CharField(max_length = 2, choices = year_in_school_options, blank = True, null = True)
+    school_name = models.CharField(max_length = 150, blank = True, null = True)
     project_genre_wanted = models.ForeignKey('Genres', blank = True, null = True)
-    platforms_wanted = models.ForeignKey('Platforms', related_name = 'hacker_platforms_wanted')
+    platforms_wanted = models.ForeignKey('Platforms', related_name = 'hacker_platforms_wanted', blank = True, null = True)
     
     def __unicode__(self):
         return self.name
