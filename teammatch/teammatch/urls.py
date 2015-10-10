@@ -19,7 +19,8 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^match/', include('hacker_matcher.urls'), name='match')
+    url(r'^match/', include('hacker_matcher.urls'), name='match'),
+    url(r'^accounts/', include('registration.backends.simple.urls'))
 ]
 
 

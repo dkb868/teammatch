@@ -22,8 +22,6 @@ class Hacker(models.Model):
 	education_school = models.CharField(max_length = 2, choices = school_options)
 	education_year = models.CharField(max_length = 2, choices = year_in_school_options)
 	project_genre_wanted = models.ForeignKey('Genres', blank = True)
-	
-
 
 	
 class Languages(models.Model):
