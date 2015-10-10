@@ -27,7 +27,7 @@ h2{
 
 /*header area*/
 .top-header{
-	background:transparent;
+	background-color:black;
 	position: fixed;
 	width: 100%;
 	z-index: 999;
