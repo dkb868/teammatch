@@ -5,6 +5,8 @@ import hacker_matcher.models
 
 
 
+
+
 def index(request):
     context_dict = {'nothing': "nothing"}
     return render(request, 'hacker_matcher/index.html', context_dict)
@@ -27,7 +29,7 @@ def profile_setup(request):
             hacker.save()
             form.save_m2m()
 
-            return index(request)
+            return matches(request)
         else:
             print form.errors
 
