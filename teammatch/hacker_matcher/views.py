@@ -23,10 +23,15 @@ def matches(request):
     mentor_id = hacker.id
     list_of_other_persons = hacker_matcher.models.Hacker.objects.exclude(id = hacker.id)
     hax = Hacker(languages_needed, genre_needed, platforms_needed, hacker.is_competitive)
-    list_of_profs
+    list_of_profs = []
     for x in list_of_other_persons:
-        [prof(x.name, x.languages_pro, x.languages_noob, ) for y ]
+        list_of_profs.append(prof(x.name, [ y.name for y in x.languages_pro.all()], [y.name for y in x.languages_noob.all()], x.project_genre_wanted, x.platforms_wanted.name, x.is_competitive, x.id))
+    list_of_matches = matches(hax, list_of_profs)
+    #list of matches is reverse sorted, and the second item.id is the id of the person you're matched with.
     
+    for x in list_of_matches:
+        matches = hacker_matcher.models.Hacker.objects.get(id = x[1].id)
+    #matches is the list ofHacker objects considered the closest matches.
     return render(request, 'hacker_matcher/matches.html')
 
 def signup(request):
