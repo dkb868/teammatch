@@ -7,6 +7,10 @@ def score( hacker, profile ):
 	plang =  profile.languages_well
 	plang2 = profile.languages_bad
 	score = 0.0
+    for h in platforms_wanted:
+		for p in platforms_mentee:
+			if h == p:
+				score+= 1.0
 	for h in hlang:
 		for p in plang:
 			if h == p:
@@ -17,9 +21,9 @@ def score( hacker, profile ):
 				score += 0.5
 	score /= 2
 				
-	hyr = hacker.year
-	pyr = profile.year
-	score += (3 - abs(hyr-pyr))
+	#hyr = hacker.year
+	#pyr = profile.year
+	#score += (3 - abs(hyr-pyr))
 	
 	hgenre = hacker.genre
 	pgenre = profile.genre
@@ -53,21 +57,19 @@ def matches( hacker, profiles ):
 	return final
 	
 class hacker:
-	def __init__(self, lang, yr, genre, type, iscomp):
+	def __init__(self, lang, genre, platforms, iscomp):
 		self.languages_wanted = lang
-		self.year = yr
 		self.genre = genre
-		self.type = type
+		self.platforms = platforms
 		self.iscompetitive = iscomp
 		
 class prof:
-	def __init__(self, name, langwell, langbad, yr, genre,type, iscomp):
+	def __init__(self, name, langwell, langbad, genre, platforms, iscomp):
 		self.name = name
 		self.languages_well = langwell
 		self.languages_bad = langbad
-		self.year = yr
 		self.genre = genre
-		self.type = type
+		self.platforms = platforms
 		self.iscompetitive = iscomp
 		
 me = hacker(('python', 'ruby', 'c++', 'javascript' ),4, 'education','app', True)
