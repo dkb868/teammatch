@@ -11,9 +11,6 @@ def index(request):
     context_dict = {'nothing': "nothing"}
     return render(request, 'hacker_matcher/index.html', context_dict)
 
-def profle_setup(request):
-    return render(request, 'hacker_matcher/profile_setup.html')
-
 def matches(request):
     hacker = hacker_matcher.models.Hacker.objects.get(user = request.user)
     team = hacker_matcher.models.Team.objects.get(team_owner = hacker)
@@ -51,6 +48,7 @@ def profile_setup(request):
             hacker = form.save(commit=False)
             hacker.user = request.user
             hacker.save()
+            form.save_m2m()
 
             return index(request)
         else:

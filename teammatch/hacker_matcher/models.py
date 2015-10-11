@@ -13,7 +13,6 @@ year_in_school_options = (
     ("SO", "Sophomore"),
     ("JR", "Junior"),
     ("SR", 'Senior'),
-    ("LF", "Left School"),
 )
 
 class Hacker(models.Model):
@@ -62,6 +61,6 @@ class Genres(models.Model):
         return self.name
 class Platforms(models.Model):
     name = models.CharField(max_length = 50)
-
+    platform_type = models.CharField(max_length = 50, blank=True, null=True)
     def __unicode__(self):
         return self.name
