@@ -56,7 +56,7 @@ def matches( hacker, profiles ):
 		final.append(results[i][1])
 	return final
 	
-class hacker:
+class Hacker:
 	def __init__(self, lang, yr, genre, type, iscomp):
 		self.languages_wanted = lang
 		self.year = yr
@@ -64,8 +64,8 @@ class hacker:
 		self.type = type
 		self.iscompetitive = iscomp
 		
-class prof:
-	def __init__(self, name, langwell, langbad, yr, genre,type, iscomp):
+class Profile:
+	def __init__(self, name, langwell, langbad, yr, genre,type, id):
 		self.name = name
 		self.languages_well = langwell
 		self.languages_bad = langbad
@@ -73,6 +73,7 @@ class prof:
 		self.genre = genre
 		self.type = type
 		self.iscompetitive = iscomp
+        self.id = id
 		
 me = hacker(('python', 'ruby', 'c++', 'javascript' ),4, 'education','app', True)
 joe = prof('joe',('python', 'ruby', 'c++' ), ('java','javascript'),3,'education','app', True)
