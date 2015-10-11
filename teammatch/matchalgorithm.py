@@ -49,12 +49,8 @@ def matches( hacker, profiles ):
 	results = []
 	for profile in profiles:
 		results.append( (score(hacker,profile), profile ))
-	results = sorted( results, key=lambda score: score[0])
-	results = list(reversed(results))
-	final = []
-	for i in range(len(results)):
-		final.append(results[i][1])
-	return final
+	results = sorted( results, key=lambda score: score[0])[:-1]
+	return results
 	
 class hacker:
 	def __init__(self, lang, genre, platforms, iscomp):
@@ -64,13 +60,14 @@ class hacker:
 		self.iscompetitive = iscomp
 		
 class prof:
-	def __init__(self, name, langwell, langbad, genre, platforms, iscomp):
+	def __init__(self, name, langwell, langbad, genre, platforms, iscomp, id):
 		self.name = name
 		self.languages_well = langwell
 		self.languages_bad = langbad
 		self.genre = genre
 		self.platforms = platforms
 		self.iscompetitive = iscomp
+        self.id = id
 		
 me = hacker(('python', 'ruby', 'c++', 'javascript' ),4, 'education','app', True)
 joe = prof('joe',('python', 'ruby', 'c++' ), ('java','javascript'),3,'education','app', True)
