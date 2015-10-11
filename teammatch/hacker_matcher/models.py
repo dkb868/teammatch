@@ -61,6 +61,6 @@ class Genres(models.Model):
         return self.name
 class Platforms(models.Model):
     name = models.CharField(max_length = 50)
-    platform_type = models.CharField(max_length = 50)
+
     def __unicode__(self):
         return self.name
