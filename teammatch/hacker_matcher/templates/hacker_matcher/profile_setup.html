@@ -8,116 +8,144 @@
 {% block body %}
 <br><br><br><br>
 <div class="container">
-    <form class="form-horizontal" role="form">
-                
+    <form class="form-horizontal" role="form" method="post" action=".">
+        {%  csrf_token %}
         <h2>Profile</h2>
-             
+
             <div class="form-group">
                 <label for="firstName" class="col-sm-3 control-label">Full Name</label>
                 <div class="col-sm-9">
-                    <input type="text" id="firstName" placeholder="Last Name, First Name" class="form-control" autofocus>
+                    <input type="text" id="id_name" name="name" placeholder="Last Name, First Name" class="form-control" autofocus>
                 </div>
             </div>
-        
+
             <div class="form-group">
                 <label for="firstName" class="col-sm-3 control-label">Slack Username</label>
                 <div class="col-sm-9">
-                    <input type="text" id="firstName" placeholder="Slack Username" class="form-control" autofocus>
+                    <input type="text" id="id_slack" name="slack" placeholder="Slack Username" class="form-control" autofocus>
                 </div>
             </div>
-        
+
             <div class="form-group">
                 <label for="country" class="col-sm-3 control-label">Year in School</label>
                 <div class="col-sm-9">
-                    <select id="country" class="form-control">
-                        <option>First</option>
-                        <option>Second</option>
-                        <option>Third</option>
-                        <option>Fourth</option>
+                    <select id="id_education_year" name="education_year" class="form-control">
+                        <option value="FR">First</option>
+                        <option value="SO">Second</option>
+                        <option value="JR">Third</option>
+                        <option value="SR">Fourth</option>
                     </select>
                 </div>
             </div> <!-- /.form-group -->
-        
+
             <div class="form-group">
                 <label for="country" class="col-sm-3 control-label">Genre</label>
                 <div class="col-sm-9">
-                    <select id="country" class="form-control">
-                        <option>Gaming</option>
-                        <option>Education</option>
-                        <option>Social</option>
+                    <select id="id_project_genre_wanted" name="project_genre_wanted"class="form-control">
+                        <option value="1">Education</option>
+<option value="2">Social</option>
+<option value="3">Game</option>
                     </select>
                 </div>
             </div> <!-- /.form-group -->
-        
+
             <div class="form-group">
                 <label for="country" class="col-sm-3 control-label">Type</label>
                 <div class="col-sm-9">
-                    <select id="country" class="form-control">
-                        <option>App</option>
-                        <option>Website</option>
-                        <option>Other</option>
+                    <select id="id_platforms_wanted" name="platforms_wanted" class="form-control">
+                        <option value="1">iOS</option>
+<option value="2">Android</option>
+<option value="3">Web</option>
+<option value="4">Oculus Rift</option>
                     </select>
                 </div>
             </div> <!-- /.form-group -->
-        
+
             <div class="form-group">
-                <label for="country" class="col-sm-3 control-label">Competitive/casual?</label>
-                <div class="col-sm-9">
-                    <select id="country" class="form-control">
-                        <option>Competitive</option>
-                        <option>Casual</option>
-                    </select>
+                <label for="id_is_competitive" class="col-sm-3 control-label">Are you competitive?</label>
+                <div class="col-sm-3">
+                    <div class="checkbox">
+                        <label>
+                    <input id="id_is_competitive" name="is_competitive" type="checkbox" class="form-control" >
+                     </label>
+                    </div>
                 </div>
             </div> <!-- /.form-group -->
-                
+
             <div class="form-group">
                 <label class="control-label col-sm-3">Pro Languages</label>
                 <div class="col-sm-9">
+                    <ul id="id_languages_pro">
+                        <li>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" id="calorieCheckbox" value="Low calorie">Java
+                            <input type="checkbox"  id="id_languages_pro_0" name="languages_pro" value="1">Java
                         </label>
                     </div>
+                            </li>
+                        <li>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" id="saltCheckbox" value="Low salt">Python
+                            <input type="checkbox" id="id_languages_pro_1" name="languages_pro" value="2">Python
                         </label>
                     </div>
+                            </li>
+                        <li>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" id="calorieCheckbox" value="Low calorie">C++
+                            <input type="checkbox" id="id_languages_pro_2" name="languages_pro" value="3">Ruby
                         </label>
                     </div>
+                            <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="id_languages_pro_3" name="languages_pro" value="4">Swift
+                        </label>
+                    </div>
+                        </li>
+                        </ul>
                 </div>
             </div> <!-- /.form-group -->
-            
+
             <div class="form-group">
                 <label class="control-label col-sm-3">Noob Languages</label>
                 <div class="col-sm-9">
+                    <ul id="id_languages_noob">
+                    <li>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" id="calorieCheckbox" value="Low calorie">Java
+                            <input type="checkbox"  id="id_languages_noob_0" name="languages_noob" value="1">Java
                         </label>
                     </div>
+                            </li>
+                        <li>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" id="saltCheckbox" value="Low salt">Python
+                            <input type="checkbox"  id="id_languages_noob_1" name="languages_noob" value="2">Python
                         </label>
                     </div>
+                            </li>
+                        <li>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" id="calorieCheckbox" value="Low calorie">C++
+                            <input type="checkbox" id="id_languages_noob_2" name="languages_noob" value="3">Ruby
                         </label>
                     </div>
+                            <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="id_languages_noob_3" name="languages_noob" value="4">Swift
+                        </label>
+                    </div>
+                        </ul>
                 </div>
             </div> <!-- /.form-group -->
-        
+
             <div class="form-group">
-               
+
                     <button type="submit" class="btn btn-primary btn-block">Update Profile</button>
             </div>
-        </div>
     </form> <!-- /form -->
 </div> <!-- ./container -->
-    
+
 {% endblock %}
+
+<ul class="errorlist"><li>platforms_wanted<ul class="errorlist"><li>Select a valid choice. That choice is not one of the available choices.</li></ul></li><li>project_genre_wanted<ul class="errorlist"><li>Select a valid choice. That choice is not one of the available choices.</li></ul></li><li>education_school<ul class="errorlist"><li>Select a valid choice. JR is not one of the available choices.</li></ul></li></ul>
