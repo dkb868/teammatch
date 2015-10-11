@@ -22,12 +22,12 @@ def matches(request):
     hax = Hacker(languages_needed, genre_needed, platforms_needed, hacker.is_competitive)
     list_of_profs = []
     for x in list_of_other_persons:
-        list_of_profs.append(Profile(x.name, [ y.name for y in x.languages_pro.all()], [y.name for y in x.languages_noob.all()], x.project_genre_wanted, x.platforms_wanted.name, x.is_competitive, x.id))
+        list_of_profs.append( Profile(x.name, [ y.name for y in x.languages_pro.all()], [y.name for y in x.languages_noob.all()], x.project_genre_wanted, x.platforms_wanted.name, x.is_competitive, x.id) )
     list_of_matches = matches(hax, list_of_profs)
     #list of matches is reverse sorted, and the second item.id is the id of the person you're matched with.
     matches = 0
     for x in list_of_matches:
-        matches = hacker_matcher.models.Hacker.objects.get(id = x[1].id)
+        matches = hacker_matcher.models.Hacker.objects.get(id = x[1].id_num)
         if matches == 10:
             break
         else:
