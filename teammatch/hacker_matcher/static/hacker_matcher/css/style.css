@@ -510,6 +510,19 @@ ul.nav{
 	margin-bottom: 30px;
 }
 
+*[role="form"] {
+    max-width: 530px;
+    padding: 0px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 0.3em;
+}
+
+*[role="form"] h2 {
+    margin-left: 0em;
+    margin-bottom: 1em;
+}
+
 #movedown {
     margin-top: 100px;
 }
