@@ -1,19 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<h1>Login</h1>
-        <form method="post" action=".">
-                {% csrf_token %}
-                {{ form.as_p }}
+{% extends "hacker_matcher/base.html" %}
 
-                <input type="submit" value="Log in" />
-                <input type="hidden" name="next" value="{{ next }}" />
-                </form>
+{%  load staticfiles %}
 
-        <p>Not  a member? <a href="{% url 'registration_register' %}">Register</a>!</p>
-</body>
-</html>
+{% block title %}Login{% endblock %}
+
+
+{% block body %}
+<br><br><br><br>
+<div class="container">
+    <form class="form-horizontal" role="form">
+                
+        <h2>Login</h2>
+                        
+            <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Username</label>
+                <div class="col-sm-9">
+                    <input type="email" id="email" placeholder="Username" class="form-control">
+                </div>
+            </div>
+                
+            <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-9">
+                    <input type="password" id="password" placeholder="Password" class="form-control">
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                </div>
+            </div>
+        </form> <!-- /form -->
+    </div> <!-- ./container -->
+    
+{% endblock %}
