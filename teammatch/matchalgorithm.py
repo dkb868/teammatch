@@ -57,32 +57,20 @@ def matches( hacker, profiles ):
 	return final
 	
 class Hacker:
-	def __init__(self, lang, yr, genre, type, iscomp):
-		self.languages_wanted = lang
-		self.year = yr
-		self.genre = genre
-		self.type = type
-		self.iscompetitive = iscomp
+    def __init__(self, lang, yr, genre, type_of, iscomp):
+        self.languages_wanted = lang
+        self.year = yr
+        self.genre = genre
+        self.type = type_of
+        self.iscompetitive = iscomp
 		
 class Profile:
-	def __init__(self, name, langwell, langbad, yr, genre,type, id):
-		self.name = name
-		self.languages_well = langwell
-		self.languages_bad = langbad
-		self.year = yr
-		self.genre = genre
-		self.type = type
-		self.iscompetitive = iscomp
-        self.id = id
-		
-me = hacker(('python', 'ruby', 'c++', 'javascript' ),4, 'education','app', True)
-joe = prof('joe',('python', 'ruby', 'c++' ), ('java','javascript'),3,'education','app', True)
-john = prof('john',('python', 'ruby'),( 'c++' ,'java'),1,'social','app', True)
-josh = prof('josh',('java', 'python', 'ruby'),('c++','javascript'),2,'social','app', False)
-profiles = [joe, john,josh]
-for i in matches(me,profiles):
-	print i.name
-		
-	
-	
-	
+    def __init__(self, name, langwell, langbad, genre, type_of, id_number):
+        self.name = name
+        self.languages_well = langwell
+        self.languages_bad = langbad
+        self.year = yr
+        self.genre = genre
+        self.type = type_of
+        self.iscompetitive = iscomp
+        self.id_num = id_number
