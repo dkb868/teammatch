@@ -45,26 +45,43 @@ def score( hacker, profile ):
     return score
 
 def matches( hacker, profiles ):
-    '''Returns list of profiles with best matches first'''
-    results = []
-    for profile in profiles:
-        results.append( (score(hacker,profile), profile ))
-    results = sorted( results, key=lambda score: score[0])[:-1]
-    return results
-
-class Hacker:
-    def __init__(self, lang, genre, platforms, iscomp):
-        self.languages_wanted = lang
-        self.genre = genre
-        self.platforms = platforms
-        self.iscompetitive = iscomp
-
-class Profile:
-    def __init__(self, name, langwell, langbad, genre, platforms, iscomp, id):
-        self.name = name
-        self.languages_well = langwell
-        self.languages_bad = langbad
-        self.genre = genre
-        self.platforms = platforms
-        self.iscompetitive = iscomp
-        self.id = id
+	'''Returns list of profiles with best matches first'''
+	results = []
+	for profile in profiles:
+		results.append( (score(hacker,profile), profile ))
+	results = sorted( results, key=lambda score: score[0])
+	results = list(reversed(results))
+	final = []
+	for i in range(len(results)):
+		final.append(results[i][1])
+	return final
+	
+class hacker:
+	def __init__(self, lang, yr, genre, type, iscomp):
+		self.languages_wanted = lang
+		self.year = yr
+		self.genre = genre
+		self.type = type
+		self.iscompetitive = iscomp
+		
+class prof:
+	def __init__(self, name, langwell, langbad, yr, genre,type, iscomp):
+		self.name = name
+		self.languages_well = langwell
+		self.languages_bad = langbad
+		self.year = yr
+		self.genre = genre
+		self.type = type
+		self.iscompetitive = iscomp
+		
+me = hacker(('python', 'ruby', 'c++', 'javascript' ),4, 'education','app', True)
+joe = prof('joe',('python', 'ruby', 'c++' ), ('java','javascript'),3,'education','app', True)
+john = prof('john',('python', 'ruby'),( 'c++' ,'java'),1,'social','app', True)
+josh = prof('josh',('java', 'python', 'ruby'),('c++','javascript'),2,'social','app', False)
+profiles = [joe, john,josh]
+for i in matches(me,profiles):
+	print i.name
+		
+	
+	
+	
