@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from hacker_matcher.forms import HackerForm
 import hacker_matcher.models
-from machalgorithm import matches, Hacker, prof
+from matchalgorithm import matches, Hacker, Profile
 
 
 
@@ -25,7 +25,7 @@ def matches(request):
     hax = Hacker(languages_needed, genre_needed, platforms_needed, hacker.is_competitive)
     list_of_profs = []
     for x in list_of_other_persons:
-        list_of_profs.append(prof(x.name, [ y.name for y in x.languages_pro.all()], [y.name for y in x.languages_noob.all()], x.project_genre_wanted, x.platforms_wanted.name, x.is_competitive, x.id))
+        list_of_profs.append(Profile(x.name, [ y.name for y in x.languages_pro.all()], [y.name for y in x.languages_noob.all()], x.project_genre_wanted, x.platforms_wanted.name, x.is_competitive, x.id))
     list_of_matches = matches(hax, list_of_profs)
     #list of matches is reverse sorted, and the second item.id is the id of the person you're matched with.
     
