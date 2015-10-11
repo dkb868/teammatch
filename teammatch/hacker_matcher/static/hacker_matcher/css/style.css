@@ -92,7 +92,7 @@ ul.nav{
 
 /*banner area*/
 .banner{
-	background: url(../img/banner.jpg);
+	background: url(../img/datback2.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	overflow: hidden;
@@ -107,12 +107,12 @@ ul.nav{
 	font-weight: 700;
 }
 .banner h1{
-	font-size: 48px;
+	font-size: 38px;
 	color: #fff;
 }
 .banner p{
 	font-size: 18px;
-	color: #999999;
+	color: #ffffff;
 	margin-top: 25px;
 	line-height: 2;
 	font-weight: 600;
@@ -134,10 +134,10 @@ ul.nav{
 	width: 160px;
 	height: 50px;
 	border-radius: 4px;
-	border: 1px solid #444348;
+	border:0;
 	text-transform: uppercase;
-	color: #fff;
-	background: transparent;
+	color: #008ed6;
+	background: white;
 	font-size: 14px;
 	margin-top: 60px;
 	margin-bottom: 105px;
@@ -509,3 +509,21 @@ ul.nav{
 	font-weight: 600;
 	margin-bottom: 30px;
 }
+
+*[role="form"] {
+    max-width: 530px;
+    padding: 0px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 0.3em;
+}
+
+*[role="form"] h2 {
+    margin-left: 0em;
+    margin-bottom: 1em;
+}
+
+#movedown {
+    margin-top: 100px;
+}
+
