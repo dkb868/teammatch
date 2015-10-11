@@ -1,16 +1,58 @@
-<!DOCTYPE html>
+{% extends "hacker_matcher/base.html" %}
 
-<html>
+{% load staticfiles %}
 
-<head>
+{% block title %}Home{% endblock %}
 
+{% block body %}
+		<!-- banner section starts here -->
+		<section class="banner" id="home">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-6 wow fadeInLeft animated">
+						<h3>introducing lucid theme</h3>
+						<h1>Carefully crafted and beautiful landing page.</h1>
+						<p>Etiam ullamcorper et turpis eget hendrerit. Praesent varius risus mi, at elementum magna ultricies accumsan. Cras venenatis lacus sed dolor placerat tempus. Morbi blandit at neque ut imperdiet.</p>
+						
+                        <button class="signup-btn">Sign-Up</button>                    
+						<button class="features-btn">Login</button>
+					</div>
+					<div class="col-xs-6 banner-img wow fadeInRight animated">
+						<img class="img-responsive" src="{% static "hacker_matcher/img/verticle-phone.png" %}" alt="">
+					</div>
+				</div>
+			</div>
+		</section><!-- end of banner section -->
 
-    </head>
+		<!-- feature sectiona -->
+		<section class="features text-center" id="features">
+			<div class="container">
+				<div class="row">
+					<h4>product overview</h4>
+					<h2>List of amazing features</h2>
+					<img class="img-responsive" src="{% static "hacker_matcher/img/daag.png" %}" alt="">
+					<div class="col-md-3 wow zoomIn animated">
+						<i class="fa fa-desktop"></i>
+						<h3>Responsive</h3>
+						<p>Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.</p>
+					</div>
+					<div class="col-md-3 wow zoomIn animated">
+						<i class="fa fa-cog"></i>
+						<h3>Customizable</h3>
+						<p>Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.</p>
+					</div>
+					<div class="col-md-3 wow zoomIn animated">
+						<i class="fa fa-facebook"></i>
+						<h3>Lovely design</h3>
+						<p>Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.</p>
+					</div>
+					<div class="col-md-3 wow zoomIn animated">
+						<i class="fa fa-mobile"></i>
+						<h3>Mobile Friendly</h3>
+						<p>Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.</p>
+					</div>
+				</div>
+			</div>
+		</section><!-- end of features section -->
 
-<body>
-    
-    <p>Hi</p>
-    
-    </body>
-
-</html>
+{% endblock %}
