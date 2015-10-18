@@ -10,5 +10,6 @@ urlpatterns = patterns('',
         url (r'^signup/', views.signup, name='signup'),
         url (r'^create_team/', views.create_team, name='create_team'),
         url (r'^your_teams/', views.your_teams, name='your_teams'),
-        url (r'^team_profile/', views.team_profile, name='team_profile'), )
+        url (r'^team_profile/', views.team_profile, name='team_profile'),
+        url (r'^join_request/', views.join_request, name='join_request'), )
 

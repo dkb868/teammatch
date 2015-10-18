@@ -132,3 +132,6 @@ def your_teams(request):
 
 def team_profile(request):
     return render(request, 'hacker_matcher/team_profile.html')
+
+def join_request(request):
+    return render(request, 'hacker_matcher/join_request.html')
