@@ -37,6 +37,8 @@ class Experience(models.Model):
 
 class Languages(models.Model):
     name = models.CharField(max_length = 50)
+    def __unicode__(self):
+        return self.name
 
 class Genres(models.Model):
     name = models.CharField(max_length = 50)
@@ -57,4 +59,4 @@ class Compatability(models.Model):
     team = models.ForeignKey('Team')
 
     def __unicode__(self):
-        return unicode(self.value)
+        return unicode(self.value) + " Between " + unicode(self.hacker) + " and " + unicode(self.team)
