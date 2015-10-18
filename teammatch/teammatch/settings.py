@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'hacker_matcher',
     'registration',
+    'notifications',
 )
 
 MIDDLEWARE_CLASSES = (
