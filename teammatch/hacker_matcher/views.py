@@ -99,3 +99,9 @@ def profile_setup(request):
         form = HackerForm()
     context_dict = {'form': form}
     return render(request, 'hacker_matcher/profile_setup.html', context_dict)
+
+def create_team(request):
+    return render(request, 'hacker_matcher/create_team.html')
+
+def your_teams(request):
+    return render(request, 'hacker_matcher/your_teams.html')
