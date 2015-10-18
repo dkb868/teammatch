@@ -20,16 +20,19 @@
         <!-- /.row -->
 
         <!-- Projects Row -->
+
         <div class="row">
+            {% for match in match_list %}
             <div class="col-md-4 portfolio-item">
                 <a href="#">
                     <img class="img-responsive" src="{% static 'hacker_matcher/img/person1.jpg' %}" width="200" alt="">
                 </a>
                 <h3>
-                    <a href="#">Charlotte</a>
+                    <a href="#">{{ match.team.name }} : {{ match.value }}</a>
                 </h3>
                 <p>Match based on: Languages, Platform, Experience, Genre, Competitive</p>
             </div>
+            {% endfor %}
             <div class="col-md-4 portfolio-item">
                 <a href="#">
                     <img class="img-responsive" src="{% static 'hacker_matcher/img/person2.jpg' %}" width="200" alt="">
