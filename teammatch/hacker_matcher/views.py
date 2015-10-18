@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from hacker_matcher.forms import HackerForm
-from hacker_matcher.models import Team, Hacker, Compatability
+from hacker_matcher.forms import HackerForm, TeamForm
+from hacker_matcher.models import Team, Hacker, Compatability,Genres,Platforms, Languages, Experience
 
 
 
@@ -98,10 +98,34 @@ def profile_setup(request):
     else:
         form = HackerForm()
     context_dict = {'form': form}
+    context_dict['languages'] = Languages.objects.all()
+    context_dict['genres'] = Genres.objects.all()
+    context_dict['platforms'] = Platforms.objects.all()
+    context_dict['experiences'] = Experience.objects.all()
     return render(request, 'hacker_matcher/profile_setup.html', context_dict)
 
 def create_team(request):
-    return render(request, 'hacker_matcher/create_team.html')
+    if request.method == 'POST':
+        form = TeamForm(request.POST)
+
+        if form.is_valid():
+            team = form.save(commit=False)
+            team.owner = request.user
+            team.save()
+            form.save_m2m()
+            return matches(request)
+        else:
+            print form.errors
+
+    else:
+        form = HackerForm()
+
+    context_dict = {'form': form}
+    context_dict['languages'] = Languages.objects.all()
+    context_dict['genres'] = Genres.objects.all()
+    context_dict['platforms'] = Platforms.objects.all()
+    context_dict['experiences'] = Experience.objects.all()
+    return render(request, 'hacker_matcher/create_team.html',context_dict)
 
 def your_teams(request):
     return render(request, 'hacker_matcher/your_teams.html')
