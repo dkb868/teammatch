@@ -18,7 +18,7 @@ class Hacker(models.Model):
         return self.name
 
 class Team(models.Model):
-    team_owner = models.ForeignKey('Hacker',blank = True, null = True)
+    owner = models.ForeignKey(User,blank = True, null = True)
     name = models.CharField(max_length = 150,blank = True, null = True)
     languages = models.ManyToManyField('Languages', related_name = 'team_languages_wanted',blank = True, null = True)
     is_competitive = models.BooleanField(blank=True, default=True)
