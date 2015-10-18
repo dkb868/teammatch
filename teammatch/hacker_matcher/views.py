@@ -105,3 +105,6 @@ def create_team(request):
 
 def your_teams(request):
     return render(request, 'hacker_matcher/your_teams.html')
+
+def team_profile(request):
+    return render(request, 'hacker_matcher/team_profile.html')
