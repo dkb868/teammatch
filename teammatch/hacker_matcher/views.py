@@ -26,16 +26,55 @@ def matches(request):
     teams = Team.objects.exclude(id__in=team_already_done)
     print teams
     # Compare hacker to every team and create a compatability object for this relation
-    for x in teams:
+    for current_team in teams:
+        score = 0.0
+        # compare pro languages
+        for language in current_hacker.languages_pro.all():
+            if language in current_team.languages.all():
+                # raw addition
+                score += 3
+                # weight
+                # later maybe users can define weights for each section
+                score *= 1.5
+
+        # compare noob languages
+        for language in current_hacker.languages_noob.all():
+            if language in current_team.languages.all():
+                score += 0.5
+                score *= 1.1
+
+        # compare genres
+        for genre in current_hacker.genres.all():
+            if genre in current_team.genres.all():
+                score += 1
+                score *= 1.1
+
+        # compare platforms
+        for platform in current_hacker.platforms.all():
+            if platform in current_team.platforms.all():
+                score += 1
+                score *= 1.1
+
+        # compare experience
+        if (current_hacker.experience in current_team.experience.all()):
+            score += 1
+            score *= 1
+
+        # If the competitive levels don't match, scale score down severely
+        if (current_hacker.is_competitive != current_team.is_competitive):
+            score *= 0.09
 
         # ALGORITHM GOES HERE
-        score = 3 # ALGORITHM RESULT GOES HERE
         # Create the new compatability with the score from the algortihm.
         # This only affects teams that it has not alraedy been calculated for
-        compatability = Compatability.objects.create(hacker = current_hacker, team = x, value = score )
+        compatability = Compatability.objects.create(hacker = current_hacker, team = current_team, value = score )
         compatability.save()
 
-    return render(request, 'hacker_matcher/matches.html')
+    # Finally, get the new list of compatability objects for current user
+    # and add to context as match_list
+    current_hacker_compatability_list = Compatability.objects.filter(hacker = current_hacker)
+    context_dict = {'match_list': current_hacker_compatability_list}
+    return render(request, 'hacker_matcher/matches.html', context_dict)
 
 def signup(request):
       return render(request, 'hacker_matcher/signup.html')
