@@ -18,14 +18,14 @@
                     <input type="text" id="id_name" name="name" placeholder="Last Name, First Name" class="form-control" autofocus>
                 </div>
             </div>
-
+<!-- don't need slack rn
             <div class="form-group">
                 <label for="firstName" class="col-sm-3 control-label">Slack Username</label>
                 <div class="col-sm-9">
                     <input type="text" id="id_slack" name="slack" placeholder="Slack Username" class="form-control" autofocus>
                 </div>
-            </div>
-
+            </div> -->
+<!--
             <div class="form-group">
                 <label for="country" class="col-sm-3 control-label">Year in School</label>
                 <div class="col-sm-9">
@@ -37,26 +37,96 @@
                     </select>
                 </div>
             </div> <!-- /.form-group -->
+           <div class="form-group">
+                <label class="control-label col-sm-3">Genre</label>
+                <div class="col-sm-9">
+                    <ul id="id_genres">
+                        {% for genre in genres %}
+                        <li>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"  id="id_genres_{{ genre.pk }}" name="genres" value="{{ genre.pk }}">{{ genre.name }}
+                        </label>
+                    </div>
+                            </li>
+                        {% endfor %}
+                    <!--
+                        <li>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="id_genres_1" name="genres" value="2">Social
+                        </label>
+                    </div>
+                            </li>
+                        <li>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="id_genres_2" name="genres" value="3">Game
+                        </label>
+                    </div>
+                        </li> -->
+                        </ul>
+                </div>
+            </div> <!-- /.form-group -->
 
+        <!-- OLD GENRE CODE
             <div class="form-group">
                 <label for="country" class="col-sm-3 control-label">Genre</label>
                 <div class="col-sm-9">
                     <select id="id_project_genre_wanted" name="project_genre_wanted"class="form-control">
                         <option value="1">Education</option>
-<option value="2">Social</option>
-<option value="3">Game</option>
+                        <option value="2">Social</option>
+                        <option value="3">Game</option>
                     </select>
                 </div>
             </div> <!-- /.form-group -->
 
+        <div class="form-group">
+                <label class="control-label col-sm-3">Platforms</label>
+                <div class="col-sm-9">
+                    <ul id="id_platforms">
+                        {% for platform in platforms %}
+                        <li>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"  id="id_platforms_{{ platform.pk }}" name="platforms" value="{{ platform.pk }}">{{ platform.name }}
+                        </label>
+                    </div>
+                            </li>
+                        {% endfor %}
+                    <!--
+                        <li>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="id_platforms_1" name="platforms" value="2">Android
+                        </label>
+                    </div>
+                            </li>
+                        <li>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="id_platforms_2" name="platforms" value="3">Web
+                        </label>
+                    </div>
+                            <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="id_platforms_3" name="platforms" value="4">Occulus Rift
+                        </label>
+                    </div>
+                        </li> -->
+                        </ul>
+                </div>
+            </div> <!-- /.form-group -->
+
+        <!-- OLD PLATOFMRS
             <div class="form-group">
                 <label for="country" class="col-sm-3 control-label">Type</label>
                 <div class="col-sm-9">
                     <select id="id_platforms_wanted" name="platforms_wanted" class="form-control">
                         <option value="1">iOS</option>
-<option value="2">Android</option>
-<option value="3">Web</option>
-<option value="4">Oculus Rift</option>
+                        <option value="2">Android</option>
+                        <option value="3">Web</option>
+                        <option value="4">Oculus Rift</option>
                     </select>
                 </div>
             </div> <!-- /.form-group -->
@@ -76,13 +146,16 @@
                 <label class="control-label col-sm-3">Pro Languages</label>
                 <div class="col-sm-9">
                     <ul id="id_languages_pro">
+                        {% for language in languages %}
                         <li>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"  id="id_languages_pro_0" name="languages_pro" value="1">Java
+                            <input type="checkbox"  id="id_languages_pro_{{ language.pk }}" name="languages_pro" value="{{ language.pk }}">{{ language.name }}
                         </label>
                     </div>
                             </li>
+                        {% endfor %}
+                    <!--
                         <li>
                     <div class="checkbox">
                         <label>
@@ -101,7 +174,7 @@
                             <input type="checkbox" id="id_languages_pro_3" name="languages_pro" value="4">Swift
                         </label>
                     </div>
-                        </li>
+                        </li> -->
                         </ul>
                 </div>
             </div> <!-- /.form-group -->
@@ -111,12 +184,15 @@
                 <div class="col-sm-9">
                     <ul id="id_languages_noob">
                     <li>
+                        {% for language in languages %}
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"  id="id_languages_noob_0" name="languages_noob" value="1">Java
+                            <input type="checkbox"  id="id_languages_noob_{{ language.pk }}" name="languages_noob" value="{{ language.pk }}">{{ language.name }}
                         </label>
                     </div>
                             </li>
+                        {% endfor %}
+                    <!--
                         <li>
                     <div class="checkbox">
                         <label>
@@ -134,8 +210,19 @@
                         <label>
                             <input type="checkbox" id="id_languages_noob_3" name="languages_noob" value="4">Swift
                         </label>
-                    </div>
+                    </div> -->
                         </ul>
+                </div>
+            </div> <!-- /.form-group -->
+
+        <div class="form-group">
+                <label for="country" class="col-sm-3 control-label">Experience</label>
+                <div class="col-sm-9">
+                    <select id="id_experience" name="experience" class="form-control">
+                        {% for experience in experiences %}
+                        <option value="{{ experience.pk }}">{{ experience.name }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div> <!-- /.form-group -->
 
