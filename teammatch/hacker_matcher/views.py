@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from hacker_matcher.forms import HackerForm, TeamForm
+from hacker_matcher.forms import HackerForm, TeamForm, JoinRequestForm
 from hacker_matcher.models import Team, Hacker, Compatability,Genres,Platforms, Languages, Experience
 
 
@@ -130,8 +130,28 @@ def create_team(request):
 def your_teams(request):
     return render(request, 'hacker_matcher/your_teams.html')
 
-def team_profile(request):
-    return render(request, 'hacker_matcher/team_profile.html')
+def team_profile(request, team_id):
+    team = Team.objects.get(id=team_id)
+    context_dict = {'team': team}
+    return render(request, 'hacker_matcher/team_profile.html',context_dict)
 
-def join_request(request):
-    return render(request, 'hacker_matcher/join_request.html')
+def join_request(request, team_id):
+    team = Team.objects.get(id=team_id)
+    context_dict = {'team': team}
+    if request.method == 'POST':
+        form = JoinRequestForm(request.POST)
+
+        if form.is_valid():
+            join_request_form = form.save(commit=False)
+            join_request_form.user = request.user
+            join_request_form.team = team
+            join_request_form.save()
+            return matches(request)
+        else:
+            print form.errors
+
+    else:
+        form = JoinRequestForm()
+        context_dict['form'] = form
+
+    return render(request, 'hacker_matcher/join_request.html',context_dict)

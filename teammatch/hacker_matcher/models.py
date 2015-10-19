@@ -29,6 +29,14 @@ class Team(models.Model):
     def __unicode__(self):
         return self.name
 
+class JoinRequest(models.Model):
+    user = models.ForeignKey(User, blank=True,null=True)
+    team = models.ForeignKey('Team', blank=True, null=True)
+    message = models.TextField(max_length=200)
+
+    def __unicode__(self):
+        return self.user.username + " Join Request for team: " + unicode(self.team)
+
 class Experience(models.Model):
     name = models.CharField(max_length=50)
 
