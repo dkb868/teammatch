@@ -42,17 +42,16 @@
          </div>
          <div class="span6">
             <ul class="inline stats">
-                
+                <!--
                                 <p>Languages: {% for language in match.team.languages.all %} {{ language }}, {% endfor %}</p>
                 <p>Platforms: {% for platform in match.team.platforms.all %} {{ platform }}, {% endfor %} </p>
                 <p>Genres: {% for genre in match.team.genres.all %} {{ genre }}, {% endfor %}</p>
-                <p>Experience Levels:{% for level in match.team.experience.all %} {{ level }}, {% endfor %}</p>
-            </div>
+                <p>Experience Levels:{% for level in match.team.experience.all %} {{ level }}, {% endfor %}</p> -->
                <li>
-                  <span class="small_header">Project Genre
+                  <span class="small_header">Genres
                   </span>
-
-                  <div>{% for genre in team.genres.all %} {{ genre }}, {% endfor %}</div>
+                    <ul>
+                  {% for genre in team.genres.all %} <li> {{ genre }} </li> {% endfor %}</div>
                   <br>
                </li>
                 
@@ -62,9 +61,7 @@
                   </span>
                   <div>
                      <ul>
-                        <li>french</li>
-                        <li>spanish</li>
-                        <li>icelandic</li>
+                         {% for language in team.languages.all %} <li>{{ language }}</li>{% endfor %}
                      </ul>
                   </div>
                   <br>
@@ -72,21 +69,20 @@
                 
                 
                <li>
-                  <span class="small_header">Working Platform
+                  <span class="small_header">Platforms
                   </span>
                   <ul>
-                      {% for platform in match.team.platforms.all %} <li>{{ platform }}</li> {% endfor %}
+                      {% for platform in team.platforms.all %} <li>{{ platform }}</li> {% endfor %}
                   </ul>
                   <br>
                </li>
                 
                 
                <li>
-                  <span class="small_header">Project Description
+                  <span class="small_header">Team Description
                   </span>
                   <div>
-                     blah blah
-                  </div>
+We are simply the best                  </div>
                   <!--                     <br>-->
                </li>
                 
@@ -111,7 +107,7 @@
                          <a class="list-group-item" data-toggle="collapse" data-target="#sm" data-parent="#menu">first guy </a>
                          <div id="sm" class="sublinks collapse">
                           <a class="list-group-item small"><div>
-                              <div = "member_profile_picture_container"><img class="member_profile_picture_in_list" src="http://images.clipartpanda.com/clipart-smiley-face-smiley_face_02.png"/></div>
+                              <div class= "member_profile_picture_container"><img class="member_profile_picture_in_list" src="http://images.clipartpanda.com/clipart-smiley-face-smiley_face_02.png"/></div>
                               
                               <div class="member_description_in_list">
                                   
