@@ -28,11 +28,21 @@
                     <img class="img-responsive" src="{% static 'hacker_matcher/img/person1.jpg' %}" width="200" alt="">
                 </a>
                 <h3>
-                    <a href="#">{{ match.team.name }} : {{ match.value }}</a>
+                    <a href="{% url 'match:team_profile' team_id=match.team.id %}">{{ match.team.name }}</a>
                 </h3>
-                <p>Match based on: Languages, Platform, Experience, Genre, Competitive</p>
+                <p> {% if match.team.competitive %} Competitive {% else %} Not Competitive {% endif %}</p>
+                <p>Languages: {% for language in match.team.languages.all %} {{ language }}, {% endfor %}</p>
+                <p>Platforms: {% for platform in match.team.platforms.all %} {{ platform }}, {% endfor %} </p>
+                <p>Genres: {% for genre in match.team.genres.all %} {{ genre }}, {% endfor %}</p>
+                <p>Experience Levels:{% for level in match.team.experience.all %} {{ level }}, {% endfor %}</p>
             </div>
-            {% endfor %}
+                {% if forloop.counter|divisibleby:3 %}
+                </div>
+                <div> class="row">
+            {% endif %}
+        {% endfor %}
+        </div>
+    <!--
             <div class="col-md-4 portfolio-item">
                 <a href="#">
                     <img class="img-responsive" src="{% static 'hacker_matcher/img/person2.jpg' %}" width="200" alt="">
@@ -55,6 +65,7 @@
         <!-- /.row -->
 
         <!-- Projects Row -->
+    <!--
         <div class="row">
             <div class="col-md-4 portfolio-item">
                 <a href="#">
@@ -85,7 +96,7 @@
             </div>
         </div>
 
-        <!-- Projects Row -->
+        <!-- Projects Row
         <div class="row">
             <div class="col-md-4 portfolio-item">
                 <a href="#">

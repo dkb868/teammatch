@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 {% load staticfiles %}
-
+{% load notifications_tags %}
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -51,6 +51,11 @@
 						        <li><a href="/match/matches/">Matches</a></li>
                                   <li><a href="/match/create_team/">Create Team</a></li>
                                   <li><a href="/match/your_teams/">Your Teams</a></li>
+                                  {% notifications_unread as unread_count %}
+                                  <li><a href="/inbox/notifications/">Notifications
+                                  {% if unread_count %}({{ unread_count }})
+                                  {% else %}(0)
+                                  {% endif %}</a></li>
 						      </ul>
 						    </div>
 						</div>

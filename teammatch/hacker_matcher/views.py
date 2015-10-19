@@ -1,9 +1,9 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import HttpResponse
 from hacker_matcher.forms import HackerForm, TeamForm, JoinRequestForm
 from hacker_matcher.models import Team, Hacker, Compatability,Genres,Platforms, Languages, Experience
-
-
+from notifications import notify
 
 
 def index(request):
@@ -135,6 +135,11 @@ def team_profile(request, team_id):
     context_dict = {'team': team}
     return render(request, 'hacker_matcher/team_profile.html',context_dict)
 
+def user_profile(request, user_id):
+    user = User.objects.get(id=user_id)
+    context_dict = {'user': user}
+    return render(request, 'hacker_matcher/user_profile.html',context_dict)
+
 def join_request(request, team_id):
     team = Team.objects.get(id=team_id)
     context_dict = {'team': team}
@@ -146,6 +151,7 @@ def join_request(request, team_id):
             join_request_form.user = request.user
             join_request_form.team = team
             join_request_form.save()
+            notify.send(request.user, recipient=team.owner, verb='made a join request for your team', target=team)
             return matches(request)
         else:
             print form.errors
@@ -155,3 +161,9 @@ def join_request(request, team_id):
         context_dict['form'] = form
 
     return render(request, 'hacker_matcher/join_request.html',context_dict)
+
+def accept_request(request, team_id, user_id):
+    pass
+
+def reject_request(request, team_id, user_id):
+    pass

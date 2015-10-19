@@ -19,7 +19,7 @@
             <img class="team_profile_picture" src="http://www.gravatar.com/avatar/f6112e781842d6a2b4636b35451401ff?s=125" class="img-polaroid"/>
          </div>
          <div class="span4">
-            <h2>{{ team.name }}</h2>
+            <h2>{{ user.hacker.name }}</h2>
             <br>
              
              
@@ -35,16 +35,11 @@
          <div class="span6">
             <ul class="inline stats">
                 
-                                <p>Languages: {% for language in match.team.languages.all %} {{ language }}, {% endfor %}</p>
-                <p>Platforms: {% for platform in match.team.platforms.all %} {{ platform }}, {% endfor %} </p>
-                <p>Genres: {% for genre in match.team.genres.all %} {{ genre }}, {% endfor %}</p>
-                <p>Experience Levels:{% for level in match.team.experience.all %} {{ level }}, {% endfor %}</p>
-            </div>
+                
                <li>
                   <span class="small_header">Project Genre
                   </span>
-
-                  <div>{% for genre in team.genres.all %} {{ genre }}, {% endfor %}</div>
+                  <div>german death metal</div>
                   <br>
                </li>
                 
@@ -54,9 +49,9 @@
                   </span>
                   <div>
                      <ul>
-                         {% for language in team.languages.all %}
-                        <li>{{ language }}</li>
-                        {% endfor %}
+                        <li>french</li>
+                        <li>spanish</li>
+                        <li>icelandic</li>
                      </ul>
                   </div>
                   <br>
@@ -66,9 +61,7 @@
                <li>
                   <span class="small_header">Working Platform
                   </span>
-                  <ul>
-                      {% for platform in match.team.platforms.all %} <li>{{ platform }}</li> {% endfor %}
-                  </ul>
+                  <div>blah blah blah</div>
                   <br>
                </li>
                 
@@ -91,7 +84,7 @@
          </div>
          <!--add button here--> 
          <div>
-            <a href="{% url 'match:join_request' team_id=team.id %}"><button class="signup-btn">Request to Join</button></a>
+
          </div>
          <!--Body content-->
       </div>
