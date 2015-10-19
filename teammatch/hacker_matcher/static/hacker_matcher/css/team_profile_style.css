@@ -6,10 +6,10 @@
 
 .small_header{
     font-weight:bold;  
-    font-size:50;
+/*    font-size:50;*/
 }
 
-ul {
+.team_details {
     list-style:none;
     padding-left:0;
 }
@@ -22,5 +22,42 @@ ul {
     height:100px;
     width:100px;
     overflow:hidden;
-    
+    margin-bottom:35px;
+}
+
+.member_profile_picture_container{
+    display:inline-block;
+}
+
+.member_profile_picture_in_list{
+    height:100px;
+    width:100px;
+/*    overflow:hidden;*/
+    margin:15px;
+    clear:left;
+/*    display:inline-block;*/
+}
+
+.member_description_in_list{
+    display:inline-block;
+   
+}
+
+/*
+div.member_description_in_list + ul + li{
+    font-weight:bold;        
+}
+*/
+
+.request_to_join_header{
+       font-size:20px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.request_to_join{
+    margin-top:50px;
+    width:500px;
+    clear:auto;
+    text-align: center;
 }

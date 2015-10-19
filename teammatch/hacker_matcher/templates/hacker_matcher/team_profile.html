@@ -3,6 +3,14 @@
 {% block title %}Team Profile{% endblock %}
 {% block body %}
 <!-- stuff goes here -->
+<link rel="stylesheet" href="{% static "hacker_matcher/css/font-awesome.min.css" %}">
+<link rel="stylesheet" href="{% static "hacker_matcher/css/bootstrap.min.css" %}">
+<link rel="stylesheet" href="{% static "hacker_matcher/css/animate.min.css" %}">
+<link rel="stylesheet" href="{% static "hacker_matcher/css/style.css" %}">
+<link rel="stylesheet" href="{% static "hacker_matcher/css/responsive.css" %}">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+<script src="{% static "hacker_matcher/js/modernizr.js" %}"></script>
+<!--    <link rel="stylesheet" type="text/css" media="all" href="{% static "hacker_matcher/css/buttonStyle.css" %}" >-->
 <link rel="stylesheet" href="{% static "hacker_matcher/css/team_profile_style.css" %}">
 
 
@@ -54,9 +62,9 @@
                   </span>
                   <div>
                      <ul>
-                         {% for language in team.languages.all %}
-                        <li>{{ language }}</li>
-                        {% endfor %}
+                        <li>french</li>
+                        <li>spanish</li>
+                        <li>icelandic</li>
                      </ul>
                   </div>
                   <br>
@@ -79,7 +87,7 @@
                   <div>
                      blah blah
                   </div>
-                  <!--                      <br>-->
+                  <!--                     <br>-->
                </li>
                 
                 
@@ -93,16 +101,83 @@
          <div>
             <a href="{% url 'match:join_request' team_id=team.id %}"><button class="signup-btn">Request to Join</button></a>
          </div>
+          
+          <div style="clear:auto">
+          
+              <div class="request_to_join">
+                <div class="request_to_join_header"> Requests to Join</div>
+                  <div id="menu">
+                        <div class="panel list-group">
+                         <a class="list-group-item" data-toggle="collapse" data-target="#sm" data-parent="#menu">first guy </a>
+                         <div id="sm" class="sublinks collapse">
+                          <a class="list-group-item small"><div>
+                              <div = "member_profile_picture_container"><img class="member_profile_picture_in_list" src="http://images.clipartpanda.com/clipart-smiley-face-smiley_face_02.png"/></div>
+                              
+                              <div class="member_description_in_list">
+                                  
+                                  <ul>
+                                    <li><span class="small_header">Languages</span></li>
+                                        <ul>
+                                            <li>Pro:</li>
+                                                <ul>
+                                                    <li>Python</li>
+                                                    <li>Java</li>
+                                                </ul>
+                                            <li>Noob:</li>
+                                                <ul>
+                                                    <li>Ruby</li>
+                                                </ul>
+                                        </ul>
+                                      
+                                      <li><span class="small_header">Message</span></li>
+                                        <div>
+                                            yo i'm first guy hurrdurr
+                                        </div>
+                                  
+                                  </ul>
+                              
+                              </div>
+                              
+                              
+                              </div>
+                             
+                             </a>
+                          <a href="#" class="list-group-item small"> approve request</a>
+                         </div>
+                            
+                            
+                            
+                            
+                            
+                            
+                         <a  class="list-group-item" data-toggle="collapse" data-target="#sl" data-parent="#menu">second guy </a>
+                         <div id="sl" class="sublinks collapse">
+                          <a class="list-group-item small"> <div>
+                              
+                              
+                              
+                              </div>
+                             
+                             </a>
+                          <a href="#" class="list-group-item small"> approve request</a>
+                         </div>
+                         
+                            
+                         </div>
+                        </div>
+                        </div>
+                </div>
+          </div>
+     
          <!--Body content-->
       </div>
    </div>
    <!--
       <div class="well clearfix">
-      
-          
-      
-      
+
       </div>
       -->
+</div>
+</div>
 </div>
 {% endblock %}
