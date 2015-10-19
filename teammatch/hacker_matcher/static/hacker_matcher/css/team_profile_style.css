@@ -1,0 +1,26 @@
+
+
+.clearfix{
+/*    font-size=100;*/
+}
+
+.small_header{
+    font-weight:bold;  
+    font-size:50;
+}
+
+ul {
+    list-style:none;
+    padding-left:0;
+}
+
+.team_profile_picture{
+    margin-bottom:50px;   
+}
+
+.team_profile_picture_in_list{
+    height:100px;
+    width:100px;
+    overflow:hidden;
+    
+}

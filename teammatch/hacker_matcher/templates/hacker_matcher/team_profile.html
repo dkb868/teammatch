@@ -1,9 +1,117 @@
 {% extends "hacker_matcher/base.html" %}
-
 {% load staticfiles %}
+{% block title %}Team Profile{% endblock %}
+{% block body %}
+<!-- stuff goes here -->
+<link rel="stylesheet" href="{% static "hacker_matcher/css/font-awesome.min.css" %}">
+<link rel="stylesheet" href="{% static "hacker_matcher/css/bootstrap.min.css" %}">
+<link rel="stylesheet" href="{% static "hacker_matcher/css/animate.min.css" %}">
+<link rel="stylesheet" href="{% static "hacker_matcher/css/style.css" %}">
+<link rel="stylesheet" href="{% static "hacker_matcher/css/responsive.css" %}">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+<script src="{% static "hacker_matcher/js/modernizr.js" %}"></script>
+<!--    <link rel="stylesheet" type="text/css" media="all" href="{% static "hacker_matcher/css/buttonStyle.css" %}" >-->
+<link rel="stylesheet" href="{% static "hacker_matcher/css/team_profile_style.css" %}">
+<script type="text/javascript" src="{% static "hacker_matcher/js/jquery-1.9.1.min.js" %}"></script>
+<script type="text/javascript" charset="utf-8" src="{% static "hacker_matcher/js/jquery.leanModal.min.js" %}"></script>
 
-{% block title %}Home{% endblock %}
 
+<<<<<<< Updated upstream
 {% block body %}
 {{ team.name }}
+=======
+
+<div class="container profile">
+<div class="row">
+<div class="span12">
+   <div class="well well-small clearfix" style="text-align:center">
+      <div class="row-fluid">
+         <br><br><br><br>
+          
+          
+          
+         <div class="span2">
+            <img class="team_profile_picture" src="http://www.gravatar.com/avatar/f6112e781842d6a2b4636b35451401ff?s=125" class="img-polaroid"/>         
+         </div>
+         <div class="span4">
+            <h2>team name here</h2>
+            <br>
+             
+             
+             
+<!--            <ul class="unstyled">-->
+            <!--
+               <li><i class="icon-phone"></i> 916-241-3613</li>
+               <li><i class="icon-envelope"></i> jonniespratley@me.com</li>
+               <li><i class="icon-globe"></i> http://jonniespratley.me</li>
+               </ul>
+               -->
+         </div>
+         <div class="span6">
+            <ul class="inline stats">
+                
+                
+               <li>
+                  <span class="small_header">Project Genre
+                  </span>
+                  <div>german death metal</div>
+                  <br>
+               </li>
+                
+                
+               <li>
+                  <span class="small_header">Languages Needed
+                  </span>
+                  <div>
+                     <ul>
+                        <li>french</li>
+                        <li>spanish</li>
+                        <li>icelandic</li>
+                     </ul>
+                  </div>
+                  <br>
+               </li>
+                
+                
+               <li>
+                  <span class="small_header">Working Platform
+                  </span>
+                  <div>blah blah blah</div>
+                  <br>
+               </li>
+                
+                
+               <li>
+                  <span class="small_header">Project Description
+                  </span>
+                  <div>
+                     blah blah
+                  </div>
+                  <!--                      <br>-->
+               </li>
+                
+                
+            </ul>
+            <div>
+               <!--/span6-->
+            </div>
+            <!--/row-->
+         </div>
+         <!--add button here--> 
+         <div>
+            <a href="/accounts/register"><button class="signup-btn">Request to Join</button></a>
+         </div>
+         <!--Body content-->
+      </div>
+   </div>
+   <!--
+      <div class="well clearfix">
+      
+          
+      
+      
+      </div>
+      -->
+</div>
+>>>>>>> Stashed changes
 {% endblock %}
