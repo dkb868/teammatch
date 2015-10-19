@@ -40,8 +40,26 @@
 
 .member_description_in_list{
     display:inline-block;
-   
+/*
+    list-style:none;
+    
+*/
 }
+
+.list_of_languages{
+    list-style:none;
+       text-align: center;
+}
+
+.main_list_item{
+/*    background-color: #1d83d6;*/
+}
+
+.small_list_item{
+    
+    background-color: #f3f3f3;   
+}
+
 
 /*
 div.member_description_in_list + ul + li{
